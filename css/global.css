@@ -1,54 +1,56 @@
-
 :root {
-	/* responsive margins / paddings */
-	--margin-sm: 16px;
-	--margin-md: 32px;
+    /* responsive margins / paddings */
+    --margin-sm: 16px;
+    --margin-md: 32px;
 }
 
 * {
-	--min-screen-size: 430;
-	--max-screen-size: 1920;
-	--interpolate-diff: calc(var(--max-font-size) - var(--min-font-size));
-	--interpolate: clamp(calc(var(--min-font-size) * 1px), calc((var(--min-font-size) * 1px) + var(--interpolate-diff) * ((100vw - calc(var(--min-screen-size) * 1px)) / (var(--max-screen-size) - var(--min-screen-size)))), calc(var(--max-font-size) * 1px));
+    --min-screen-size: 430;
+    --max-screen-size: 1920;
+    --interpolate-diff: calc(var(--max-font-size) - var(--min-font-size));
+    --interpolate: clamp(
+        calc(var(--min-font-size) * 1px),
+        calc(
+            (var(--min-font-size) * 1px) + var(--interpolate-diff) *
+                (
+                    (100vw - calc(var(--min-screen-size) * 1px)) /
+                        (var(--max-screen-size) - var(--min-screen-size))
+                )
+        ),
+        calc(var(--max-font-size) * 1px)
+    );
 }
 
 html {
-	height: 100%;
-	font-size: 16px;
+    height: 100%;
 }
 
-
-
-/* text utility classes */
+/* text utility classes - updated to use typography system */
 
 .bold {
-	font-weight: 700;
+    font-weight: var(--font-weight-bold);
 }
 
 .sub-text {
-	font-weight: 400;
+    font-weight: var(--font-weight-regular);
 }
-
-
 
 /* section utility classes */
 
 .section {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 0 24px;
-	overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px;
+    overflow: hidden;
 }
-
-
 
 /* button hover utility classes */
 
 .hover-dark:hover {
-	filter: brightness(0.85);
+    filter: brightness(0.85);
 }
 
 .hover-zoom:hover {
-	scale: 1.05;
+    scale: 1.05;
 }
