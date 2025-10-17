@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pitt Stop</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+        <style>
+            :root {
+                --primary-blue: #0056b3;
+                --secondary-orange: #ff5722;
+                --text-dark: #333;
+                --text-light: #f8f9fa;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                color: var(--text-dark);
+            }
+
+            .navbar {
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-brand img {
+                height: 40px;
+            }
+
+            .navbar .nav-link {
+                color: var(--primary-blue) !important;
+                font-weight: 500;
+                margin-right: 15px;
+            }
+
+            .navbar .btn-login {
+                background-color: var(--primary-blue);
+                color: #fff;
+                border-radius: 5px;
+                padding: 8px 20px;
+            }
+
+            .hero-section {
+                background: linear-gradient(to right, #0056b3e6, #0056b3e6),
+                    url('./assets/header.png') no-repeat center center/cover;
+                color: #fff;
+                padding: 100px 0;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* .hero-section::before {
+                content: '';
+                position: absolute;
+                top: -20%;
+                right: -20%;
+                width: 50%;
+                height: 100%;
+                background: rgba(255, 87, 34, 0.6); 
+                transform: rotate(20deg);
+                transform-origin: bottom left;
+                z-index: 1;
+            } */
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero-image {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                height: 100%; /* Adjust as needed */
+                max-width: 50%; /* Adjust as needed */
+                z-index: 0;
+            }
+
+            .hero-section h1 {
+                font-size: 3.5rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            .hero-section p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                max-width: 600px;
+                margin-bottom: 30px;
+            }
+
+            .hero-section .btn {
+                padding: 12px 25px;
+                border-radius: 5px;
+                font-weight: bold;
+                margin-right: 15px;
+            }
+
+            .hero-section .btn-outline-light {
+                color: #fff;
+                border-color: #fff;
+            }
+            .hero-section .btn-outline-light:hover {
+                background-color: #fff;
+                color: var(--primary-blue);
+            }
+
+            .hero-section .btn-light {
+                background-color: #fff;
+                color: var(--primary-blue);
+            }
+
+            .section-padding {
+                padding: 60px 0;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Base pseudo-elements for spacing */
+            .section-padding::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('./assets/section-group1.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                z-index: -1;
+                opacity: 0.1; /* Adjust opacity as needed */
+            }
+
+            .section-padding::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('./assets/section-group2.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                z-index: -1;
+                opacity: 0.1; /* Adjust opacity as needed */
+            }
+
+            /* Alternative approach: Separate background classes */
+            .section-group1-bg {
+                position: relative;
+            }
+
+            .section-group1-bg::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('./assets/section-group1.svg');
+                background-repeat: no-repeat;
+                background-position: top left;
+                background-size: contain;
+                z-index: -1;
+                opacity: 0.15;
+            }
+
+            .section-group2-bg {
+                position: relative;
+            }
+
+            .section-group2-bg::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('./assets/section-group2.svg');
+                background-repeat: no-repeat;
+                background-position: top right;
+                background-size: contain;
+                z-index: -1;
+                opacity: 0.15;
+            }
+
+            .card-img-top {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+            .card-body h3 {
+                color: var(--primary-blue);
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+
+            .card-body p {
+                line-height: 1.6;
+            }
+
+            .services-section {
+                background-color: var(--primary-blue);
+                color: #fff;
+                padding: 80px 0;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .services-section::before {
+                content: '';
+                position: absolute;
+                top: -20%;
+                left: -20%;
+                width: 50%;
+                height: 100%;
+                background: rgba(255, 87, 34, 0.6); /* Orange overlay */
+                transform: rotate(-20deg);
+                transform-origin: bottom right;
+                z-index: 1;
+            }
+
+            .services-content {
+                position: relative;
+                z-index: 2;
+            }
+
+            .services-section h2 {
+                font-size: 2.8rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            .services-section p {
+                font-size: 1.1rem;
+                max-width: 500px;
+                margin-bottom: 30px;
+            }
+
+            .services-section .btn-group-vertical .btn {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                text-align: left;
+                padding: 12px 20px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+            .services-section .btn-group-vertical .btn:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .services-section .btn-group-vertical .btn i {
+                margin-left: auto;
+                font-size: 1.2rem;
+            }
+
+            .services-image {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                height: 100%;
+                max-width: 50%; /* Adjust as needed */
+                object-fit: contain;
+                z-index: 0;
+            }
+
+            .footer {
+                background-color: #f8f9fa;
+                padding: 50px 0 20px;
+                color: var(--text-dark);
+                font-size: 0.9rem;
+            }
+
+            .footer h5 {
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: var(--primary-blue);
+            }
+
+            .footer ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .footer ul li {
+                margin-bottom: 10px;
+            }
+
+            .footer ul li a {
+                color: var(--text-dark);
+                text-decoration: none;
+            }
+
+            .footer ul li a:hover {
+                color: var(--primary-blue);
+            }
+
+            .footer .contact-info p {
+                margin-bottom: 5px;
+            }
+
+            .footer .btn-outline-primary {
+                border-color: var(--primary-blue);
+                color: var(--primary-blue);
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+
+            .footer .btn-outline-primary:hover {
+                background-color: var(--primary-blue);
+                color: #fff;
+            }
+
+            .copyright {
+                margin-top: 30px;
+                border-top: 1px solid #e9ecef;
+                padding-top: 20px;
+                color: #6c757d;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 1200px) {
+                .hero-section h1 {
+                    font-size: 3rem;
+                }
+                .services-section h2 {
+                    font-size: 2.5rem;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .hero-section {
+                    padding: 80px 0;
+                }
+                .hero-section h1 {
+                    font-size: 2.5rem;
+                }
+                .hero-image {
+                    display: none; /* Hide image on medium screens */
+                }
+                .services-section {
+                    padding: 60px 0;
+                }
+                .services-section h2 {
+                    font-size: 2.2rem;
+                }
+                .services-image {
+                    display: none; /* Hide image on medium screens */
+                }
+                .footer .col-md-3 {
+                    margin-bottom: 30px;
+                }
+                .footer .col-md-4 {
+                    margin-bottom: 30px;
+                }
+                .services-section .btn-group-vertical {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .navbar-brand img {
+                    height: 35px;
+                }
+                .navbar-toggler {
+                    border-color: var(--primary-blue);
+                }
+                .navbar-toggler-icon {
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb%280, 86, 179%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+                }
+                .navbar .nav-link {
+                    margin-right: 0;
+                    text-align: center;
+                }
+                .navbar .btn-login {
+                    width: 80%;
+                    margin: 10px auto;
+                    display: block;
+                }
+                .hero-section {
+                    padding: 60px 0;
+                    text-align: center;
+                }
+                .hero-section h1 {
+                    font-size: 2rem;
+                }
+                .hero-section p {
+                    font-size: 1rem;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .hero-section .btn {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    margin-right: 0;
+                }
+                .section-padding {
+                    padding: 40px 0;
+                }
+                .card-img-top {
+                    height: 200px;
+                }
+                .services-section {
+                    padding: 40px 0;
+                    text-align: center;
+                }
+                .services-section h2 {
+                    font-size: 2rem;
+                }
+                .services-section p {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .footer {
+                    padding: 30px 0 15px;
+                    text-align: center;
+                }
+                .footer .col-md-3,
+                .footer .col-md-4 {
+                    margin-bottom: 20px;
+                }
+                .footer .btn-outline-primary {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .hero-section h1 {
+                    font-size: 1.8rem;
+                }
+                .services-section h2 {
+                    font-size: 1.8rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-white sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img
+                        src="https://via.placeholder.com/150x40?text=PittCounty"
+                        alt="PittCounty Logo"
+                    />
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services Available</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">How to Join</a>
+                        </li>
+                    </ul>
+                    <div class="d-lg-flex ms-lg-3">
+                        <button class="btn btn-login" type="button">
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero-section">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-lg-7 col-md-10 text-start hero-content">
+                        <h1 class="display-4 mb-4">Welcome to PITT STOP</h1>
+                        <p class="lead mb-4">
+                            Pitt Stop is a community-built hub designed to
+                            support healthier, happier lives for the people of
+                            Pitt County and nearby areas. By bringing together
+                            healthcare providers, educators, organizations,
+                            schools, colleges and university systems, agencies,
+                            healthcare systems, and businesses, Pitt Stop makes
+                            it easier than ever to access the services you need
+                            - all in one welcoming space.
+                        </p>
+                        <p class="mb-5">
+                            At Pitt Stop, you'll find care, resources, and
+                            opportunities delivered side by side, because we
+                            believe everyone can live their best community life,
+                            built together, through trusted and lasting
+                            partnerships.
+                        </p>
+                        <a
+                            href="#"
+                            class="btn btn-outline-light me-3 mb-3 mb-lg-0"
+                            >Explore Services</a
+                        >
+                        <a href="#" class="btn btn-light mb-3 mb-lg-0"
+                            >Schedule Visit</a
+                        >
+                    </div>
+                </div>
+                <img
+                    src="./assets/header-group.png"
+                    alt="Happy couple shaking hands"
+                    class="hero-image d-none d-lg-block"
+                />
+            </div>
+        </header>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card border-0">
+                            <img
+                                src="./assets/col-figure/col-img1.png"
+                                class="card-img-top"
+                                alt="Pitt Stop Building Exterior"
+                            />
+                            <div class="card-body px-0">
+                                <h3>Pitt Stop</h3>
+                                <p class="card-text">
+                                    Pitt Stop was born from a shared vision: to
+                                    offer a sustainable way for Pitt County
+                                    organizations, schools, college and
+                                    university systems, agencies, healthcare
+                                    systems, and businesses to connect and work
+                                    together to improve the overall physical,
+                                    mental, emotional health, well-being, and
+                                    quality of life for our residents. Local
+                                    leaders, organizations, and citizens created
+                                    the Pitt Stop to provide a physical space
+                                    for connection and collaboration with the
+                                    community. Every detail of Pitt Stop
+                                    reflects this commitment - built by the
+                                    community for the community.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0">
+                            <img
+                                src="./assets/col-figure/col-img2.png"
+                                class="card-img-top"
+                                alt="Historic Bethel Clinic Building"
+                            />
+                            <div class="card-body px-0">
+                                <h3>History of the Pitt Stop Building</h3>
+                                <p class="card-text">
+                                    The Pitt Stop building has a story of its
+                                    own. In recent years, this building housed
+                                    the Bethel Police Department. However for
+                                    many years, the Pitt Stop building was the
+                                    home of the Bethel Clinic. Today, the
+                                    building serves a new purpose, building now
+                                    serves as a welcoming space for healthcare,
+                                    education, and community services, making it
+                                    easier for families and individuals to find
+                                    support close to home.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-lg-7 col-md-10 services-content">
+                        <h2 class="mb-4">Services Available</h2>
+                        <p class="mb-5">
+                            Pitt Stop brings together a wide range of programs
+                            and services, all designed to improve health,
+                            well-being, and quality of life.
+                        </p>
+                        <div
+                            class="btn-group-vertical"
+                            role="group"
+                            aria-label="Services List"
+                        >
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Healthcare Services
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Mental Health & Recovery
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Family & Community Support
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Nutrition & Wellness
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Employment & Education
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+                <img
+                    src="https://via.placeholder.com/600x600?text=Volunteers+distributing+goods"
+                    alt="Volunteers distributing goods"
+                    class="services-image d-none d-lg-block"
+                />
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                        <h5>Contact us</h5>
+                        <div class="contact-info">
+                            <p>
+                                <strong>Office Hours</strong> Monday through
+                                Friday 8 am to 5 pm
+                            </p>
+                            <p>
+                                <strong>Location</strong> 1717 W. 5th Street
+                                Greenville, NC 27834
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                        <h5>Useful Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Resources</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 offset-lg-2 col-md-12">
+                        <h5>Enquiry Form</h5>
+                        <p>
+                            To leave us a message, please click the button below
+                        </p>
+                        <a href="#" class="btn btn-outline-primary"
+                            >Enquire Now</a
+                        >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center copyright">
+                        <p class="mb-0">
+                            Copyright © 2025 Pitt Stop. All rights reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
