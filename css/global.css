@@ -1,4 +1,32 @@
 :root {
+    /* Pitt County Brand Colors */
+
+    /* Primary Brand Colors */
+    --color-black: #000000;
+    --color-primary-blue: #1a6293;
+    --color-primary-gray: #939598;
+    --color-white: #ffffff;
+
+    /* Digital/Web Colors */
+    --color-digital-link-blue: #0f5d8a;
+    --color-digital-gray: #727279;
+
+    /* Seal Colors (Special Use Only) */
+    --color-golden-yellow: #f8eb60;
+    --color-pitt-navy: #06205b;
+    --color-tobacco: #d55e00;
+
+    /* Background Colors */
+    --color-bg-lightest-gray: #f9f9f9;
+    --color-bg-med-gray: #f1f1f1;
+    --color-bg-gray: #e0e0e0;
+
+    /* Text Colors - Primary Usage */
+    --color-text-primary: var(--color-black);
+    --color-text-secondary: var(--color-white);
+    --color-text-link: var(--color-digital-link-blue);
+    --color-text-muted: var(--color-digital-gray);
+
     /* responsive margins / paddings */
     --margin-sm: 16px;
     --margin-md: 32px;
