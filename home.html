@@ -14,7 +14,7 @@
         />
         <style>
             :root {
-                --primary-blue: #1A6293;
+                --primary-blue: #1a6293;
                 --secondary-orange: #ff5722;
                 --text-dark: #333;
                 --text-light: #f8f9fa;
@@ -66,7 +66,11 @@
             }
 
             .hero-section {
-                background: linear-gradient(to right, var(--primary-blue), var(--primary-blue)),
+                background: linear-gradient(
+                        to right,
+                        var(--primary-blue),
+                        var(--primary-blue)
+                    ),
                     url('./assets/header.png') no-repeat center center/cover;
                 color: #fff;
                 padding: 200px 0 102px;
@@ -276,11 +280,16 @@
             .services-image {
                 position: absolute;
                 bottom: 0;
-                right: 0;
+                right: -25%;
                 height: 100%;
-                max-width: 100%; 
+                max-width: 100%;
                 object-fit: contain;
                 z-index: 0;
+            }
+
+            .py-7 {
+                padding-top: 7rem !important;
+                padding-bottom: 7rem !important;
             }
 
             .footer {
@@ -617,7 +626,7 @@
 
         <section class="services-section p-0">
             <div class="container position-relative">
-                <div class="row py-5">
+                <div class="row py-7">
                     <div class="col-lg-7 col-md-10 services-content">
                         <h2 class="mb-4">Services Available</h2>
                         <p class="mb-5">
@@ -626,21 +635,28 @@
                             well-being, and quality of life.
                         </p>
 
-                        <div class="d-flex flex-wrap justify-content-start gap-3">
+                        <div
+                            class="d-flex flex-wrap justify-content-start gap-3"
+                        >
                             <button class="btn btn-service">
-                                Healthcare Services <i class="fas fa-chevron-right"></i>
+                                Healthcare Services
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                             <button class="btn btn-service">
-                                Mental Health & Recovery <i class="fas fa-chevron-right"></i>
+                                Mental Health & Recovery
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                             <button class="btn btn-service">
-                                Family & Community Support <i class="fas fa-chevron-right"></i>
+                                Family & Community Support
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                             <button class="btn btn-service">
-                                Nutrition & Wellness <i class="fas fa-chevron-right"></i>
+                                Nutrition & Wellness
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                             <button class="btn btn-service">
-                                Employment & Education <i class="fas fa-chevron-right"></i>
+                                Employment & Education
+                                <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
