@@ -1,0 +1,192 @@
+/* ====================================
+   Before/After Section Shape Management
+   ==================================== */
+
+/* Section Background Shapes */
+.before-after-section {
+    position: relative;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    overflow: hidden;
+}
+
+/* Top-left decorative shape for "before" context */
+.before-after-section::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -60px;
+    width: 250px;
+    height: 250px;
+    background-image: url('../assets/section-group1.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.08;
+    z-index: 0;
+    transform: rotate(-15deg);
+}
+
+/* Bottom-right decorative shape for "after" context */
+.before-after-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: -60px;
+    width: 250px;
+    height: 250px;
+    background-image: url('../assets/section-group2.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.08;
+    z-index: 0;
+    transform: rotate(15deg);
+}
+
+/* Individual Card Shape Decorations */
+.before-card {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.before-card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary-blue);
+    border-radius: 50%;
+    opacity: 0.15;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.before-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.before-card:hover::before {
+    opacity: 0.25;
+    transform: scale(1.2);
+}
+
+.after-card {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.after-card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 40px;
+    height: 40px;
+    background: var(--color-tobacco);
+    border-radius: 50%;
+    opacity: 0.15;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.after-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.after-card:hover::before {
+    opacity: 0.25;
+    transform: scale(1.2);
+}
+
+/* Timeline Connector (Optional Enhancement) */
+.before-after-connector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.before-after-connector::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        var(--color-primary-blue),
+        var(--color-tobacco)
+    );
+    opacity: 0.5;
+}
+
+.before-after-connector::after {
+    content: '→';
+    background: white;
+    color: var(--color-primary-blue);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    position: relative;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .before-after-section::before,
+    .before-after-section::after {
+        width: 150px;
+        height: 150px;
+        opacity: 0.05;
+    }
+
+    .before-card::before,
+    .after-card::before {
+        width: 30px;
+        height: 30px;
+        top: -5px;
+    }
+
+    .before-card::before {
+        left: -5px;
+    }
+
+    .after-card::before {
+        right: -5px;
+    }
+}
+
+/* Shape Animation on Scroll (Optional) */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(-15deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-15deg);
+    }
+}
+
+@keyframes floatReverse {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(15deg);
+    }
+}
+
+.before-after-section.animate::before {
+    animation: float 6s ease-in-out infinite;
+}
+
+.before-after-section.animate::after {
+    animation: floatReverse 6s ease-in-out infinite 3s;
+}
