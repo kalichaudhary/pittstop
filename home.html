@@ -26,8 +26,8 @@
             }
 
             .navbar {
-                background-color: #fff;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                background-color: transparent;
+                /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
             }
 
             .navbar-brand img {
@@ -76,10 +76,10 @@
 
             .hero-image {
                 position: absolute;
-                bottom: 0;
-                right: 0;
-                height: 100%; /* Adjust as needed */
-                max-width: 50%; /* Adjust as needed */
+                bottom: -180px;
+                right: -234px;
+                height: 146%;
+                max-width: 100%;
                 z-index: 0;
             }
 
@@ -248,43 +248,24 @@
                 margin-bottom: 30px;
             }
 
-            .services-section .service-card-btn {
-                text-decoration: none;
-                color: inherit;
-                display: block;
-                height: 100%;
-            }
-
-            .services-section .service-card {
+            .services-section .btn-group-vertical .btn {
                 background-color: rgba(255, 255, 255, 0.1);
                 color: #fff;
                 border: 1px solid rgba(255, 255, 255, 0.3);
-                border-radius: 8px;
-                padding: 20px;
-                height: 100px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                transition: all 0.3s ease;
-                cursor: pointer;
-            }
-
-            .services-section .service-card:hover {
-                background-color: rgba(255, 255, 255, 0.2);
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-
-            .services-section .service-card .service-text {
-                font-weight: 500;
-                font-size: 1rem;
-                flex: 1;
                 text-align: left;
+                padding: 12px 20px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
             }
 
-            .services-section .service-card i {
-                font-size: 1.1rem;
-                opacity: 0.8;
+            .services-section .btn-group-vertical .btn:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .services-section .btn-group-vertical .btn i {
+                margin-left: auto;
+                font-size: 1.2rem;
             }
 
             .services-image {
@@ -386,12 +367,8 @@
                 .footer .col-md-4 {
                     margin-bottom: 30px;
                 }
-                .services-section .service-card {
-                    height: 80px;
-                    padding: 15px;
-                }
-                .services-section .service-card .service-text {
-                    font-size: 0.9rem;
+                .services-section .btn-group-vertical {
+                    width: 100%;
                 }
             }
 
@@ -459,13 +436,6 @@
                 .footer .btn-outline-primary {
                     width: 100%;
                 }
-                .services-section .service-card {
-                    height: 70px;
-                    padding: 12px;
-                }
-                .services-section .service-card .service-text {
-                    font-size: 0.85rem;
-                }
             }
 
             @media (max-width: 576px) {
@@ -475,24 +445,22 @@
                 .services-section h2 {
                     font-size: 1.8rem;
                 }
-                .services-section .service-card {
-                    height: 65px;
-                    padding: 10px;
-                }
-                .services-section .service-card .service-text {
-                    font-size: 0.8rem;
-                }
             }
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-white sticky-top">
+        <nav class="navbar navbar-expand-lg bg-transparent sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img
+                    <!-- <img
                         src="https://via.placeholder.com/150x40?text=PittCounty"
                         alt="PittCounty Logo"
-                    />
+                    /> -->
+                    <object
+                        data="assets/header-row.svg"
+                        class="header-row1"
+                        type="image/svg+xml"
+                    ></object>
                 </a>
                 <button
                     class="navbar-toggler"
@@ -633,71 +601,48 @@
         <section class="services-section p-0">
             <div class="container position-relative">
                 <div class="row py-5">
-                    <div class="col-12 services-content text-center">
+                    <div class="col-lg-7 col-md-10 services-content">
                         <h2 class="mb-4">Services Available</h2>
-                        <p class="mb-5 mx-auto" style="max-width: 600px">
+                        <p class="mb-5">
                             Pitt Stop brings together a wide range of programs
                             and services, all designed to improve health,
                             well-being, and quality of life.
                         </p>
-
-                        <!-- Services Grid Layout -->
-                        <div class="row g-3 justify-content-center">
-                            <!-- Top Row - 2 items -->
-                            <div class="col-lg-4 col-md-6">
-                                <a href="#" class="service-card-btn">
-                                    <div class="service-card">
-                                        <span class="service-text"
-                                            >Healthcare Services</span
-                                        >
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <a href="#" class="service-card-btn">
-                                    <div class="service-card">
-                                        <span class="service-text"
-                                            >Mental Health & Recovery</span
-                                        >
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <!-- Middle Row - 2 items -->
-                            <div class="col-lg-4 col-md-6">
-                                <a href="#" class="service-card-btn">
-                                    <div class="service-card">
-                                        <span class="service-text"
-                                            >Family & Community Support</span
-                                        >
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <a href="#" class="service-card-btn">
-                                    <div class="service-card">
-                                        <span class="service-text"
-                                            >Nutrition & Wellness</span
-                                        >
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <!-- Bottom Row - 1 item centered -->
-                            <div class="col-lg-4 col-md-6">
-                                <a href="#" class="service-card-btn">
-                                    <div class="service-card">
-                                        <span class="service-text"
-                                            >Employment & Education</span
-                                        >
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </div>
-                                </a>
-                            </div>
+                        <div
+                            class="btn-group-vertical"
+                            role="group"
+                            aria-label="Services List"
+                        >
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Healthcare Services
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Mental Health & Recovery
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Family & Community Support
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Nutrition & Wellness
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
+                            <a
+                                href="#"
+                                class="btn d-flex justify-content-between align-items-center"
+                                >Employment & Education
+                                <i class="fas fa-chevron-right"></i
+                            ></a>
                         </div>
                     </div>
                 </div>
