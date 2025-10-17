@@ -36,11 +36,13 @@
 
 /* Fallback fonts for accessibility and cross-platform support */
 :root {
-    /* Font Family Variables */
-    --font-primary: 'Myriad Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-        'Helvetica Neue', Arial, sans-serif;
+    /* Font Family Variables - Following Pitt County Brand Guidelines */
+    --font-primary: 'Myriad Pro', 'Noto Sans', 'Open Sans', -apple-system,
+        BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial,
+        sans-serif;
+    --font-fallback: 'Noto Sans', 'Open Sans', -apple-system, BlinkMacSystemFont,
+        'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    --font-script: 'Great Vibes', cursive; /* Special approval only */
 
     /* Font Weight Variables */
     --font-weight-light: 300;
@@ -323,4 +325,83 @@ small {
     .h6 {
         font-size: 11pt;
     }
+}
+
+/* Pitt County Brand Typography Utilities */
+
+/* Text Alignment - Following Brand Guidelines */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Letter Spacing (Tracking) */
+.tracking-tighter {
+    letter-spacing: -0.05em;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+    letter-spacing: 0;
+}
+
+.tracking-wide {
+    letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+/* Title Case Helper Class */
+.title-case {
+    text-transform: capitalize;
+}
+
+/* Avoid Text Widows and Orphans */
+.no-orphans {
+    orphans: 2;
+    widows: 2;
+}
+
+/* Optimal Line Length for Readability (50-75 characters) */
+.optimal-line-length {
+    max-width: 65ch; /* Approximately 65 characters */
+}
+
+/* Script Font (Special Approval Only) */
+.font-script {
+    font-family: var(--font-script);
+}
+
+/* Typography for Headlines - Following Brand Guidelines */
+.headline-stacked {
+    line-height: var(--line-height-tight);
+    hyphens: auto;
+    word-wrap: break-word;
+}
+
+.headline-stacked br {
+    line-height: 0;
+}
+
+/* Decorative Elements (Approval Required) */
+.decorative-text {
+    /* Use only with prior PIO approval */
+    font-style: italic;
+}
+
+/* Canva Alternative Classes */
+.canva-fallback {
+    font-family: 'Noto Sans', 'Open Sans', var(--font-fallback);
 }
